@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="move.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <div class="ilbuni"></div>
+      <div class="ilbuni"></div>
+      <div class="ilbuni"></div>
+    </div>
+    <script>
+      (function () {
+        const group = document.querySelectorAll(".ilbuni");
+        const stage = document.querySelector(".stage");
+
+        function clickHandler() {
+          stage.removeChild(this);
+          //this.parentNode.removeChild(this); 같음
+        }
+
+        for (let i = 0; i < group.length; i++) {
+          //클릭이벤트 생성
+          group[i].addEventListener("click", clickHandler);
+        }
+      })();
+    </script>
+  </body>
+</html>

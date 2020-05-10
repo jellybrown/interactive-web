@@ -21,7 +21,7 @@
         margin: 1em;
         transform: rotateY(0deg);
         transition: 1s;
-        transform-style: preserve-3d; /* 3d효과가 먹히게하기위해 */
+        transform-style: preserve-3d; /* 3d효과가 먹히게하기위해, 근데 ie에서는 적용이 안된다. */
         /* transform-origin: left; 문처럼 만들때 */
       }
 
@@ -36,6 +36,7 @@
         height: 100%;
         border-radius: 0.5em;
         font-size: 1.5rem;
+        -webkit-backface-visibility: hidden; /* 사파리 브라우저 호환 */
         backface-visibility: hidden; /* 뒤집을때 hidden */
       }
       .card-side-front {
