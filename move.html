@@ -15,18 +15,15 @@
     </div>
     <script>
       (function () {
-        const group = document.querySelectorAll(".ilbuni");
         const stage = document.querySelector(".stage");
 
-        function clickHandler() {
-          stage.removeChild(this);
-          //this.parentNode.removeChild(this); 같음
+        function clickHandler(e) {
+          if (e.target.classList.contains("ilbuni")) {
+            //ilbuni클래스를 가지고있다면
+            stage.removeChild(e.target); //stage안에있는 이벤트가발생하는 애를  지운다.
+          }
         }
-
-        for (let i = 0; i < group.length; i++) {
-          //클릭이벤트 생성
-          group[i].addEventListener("click", clickHandler);
-        }
+        stage.addEventListener("click", clickHandler);
       })();
     </script>
   </body>
