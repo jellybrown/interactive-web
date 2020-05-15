@@ -7,12 +7,22 @@
   </head>
   <body>
     <script>
+      //생성자는 개별적으로 셋팅 필요한애들
       function Person(nickname, age) {
         this.nickname = nickname; //새로생성될 아이가 this가 가리키는 애
         this.age = age;
+
+        /* 얘네는 prototype으로 지정해주는게 좋다.
         this.introduce = function () {
           console.log(
             `안녕하세요? 저는 ${this.nickname} 이고, 나이는 ${this.age} 살 이에요.`
+          );
+        };
+        */
+        //prototype은 공유하면 더 편한애들
+        Person.prototype.introduce = function () {
+          console.log(
+            `안녕하세요? 저는 ${this.nickname} 이고, 나이는 ${this.age} 살 입니다.`
           );
         };
       }
