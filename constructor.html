@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(nickname, age) {
+        this.nickname = nickname; //새로생성될 아이가 this가 가리키는 애
+        this.age = age;
+        this.introduce = function () {
+          console.log(
+            `안녕하세요? 저는 ${this.nickname} 이고, 나이는 ${this.age} 살 이에요.`
+          );
+        };
+      }
+
+      //인스턴스 생성
+      const person1 = new Person("yujin", 26);
+      const person2 = new Person("바보", 10);
+
+      person1.introduce();
+      person2.introduce();
+    </script>
+  </body>
+</html>
