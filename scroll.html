@@ -55,12 +55,21 @@
           const outputElem = document.querySelector(".output");
           const ilbuniElem = document.querySelector(".ilbuni");
 
-          function showValue
+          function showValue() {
+             //outputElem.innerHTML = window.pageYOffset; 스크롤의 위치를 알려줌
+            //outputElem.innerHTML = ilbuniElem.offsetTop; 캐릭터 위치 고정 좌표
+            //outputElem.innerHTML = ilbuniElem.getBoundingClientRect().top; 화면에따른 캐릭터의 위치 
+            let posY = ilbuniElem.getBoundingClientRect().top;
+            if(posY < window.innerHeight * 0.2) { // 4/5가 넘어가면 캐릭터가 커지게
+              ilbuniElem.classList.add("zoom");
+            } else {
+              ilbuniElem.classList.remove("zoom");
+            }
+          
+          }
 
           window.addEventListener("scroll", function() {
-            //outputElem.innerHTML = window.pageYOffset; 스크롤의 위치를 알려줌
-            //outputElem.innerHTML = ilbuniElem.offsetTop; 캐릭터 위치 고정 좌표
-            outputElem.innerHTML = ilbuniElem.getBoundingClientRect().top; 화면에따른 캐릭터의 위치 
+           showValue();
           });
 
         })();
