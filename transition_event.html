@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: red;
+        transition: 1s;
+      }
+
+      .ball.end {
+        background-color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball"></div>
+    <script>
+      const ballElem = document.querySelector(".ball");
+      window.addEventListener("click", function (e) {
+        ballElem.style.transform =
+          "translate(" + (e.clientX - 15) + "px," + (e.clientY - 15) + "px)";
+      });
+
+      //trastitionstart: 시작할때 실행됨
+      ballElem.addEventListener("transitionend", function (e) {
+        // transition이 끝나고 실행됨
+        ballElem.classList.add("end");
+        console.log(e.elapsedTime); //transition-duration(지속시간) 찍힘
+        console.log(e.propertyName); //현재는 transform이 찍힘 (transition이 동작하는 속성의 이름)
+      });
+    </script>
+  </body>
+</html>

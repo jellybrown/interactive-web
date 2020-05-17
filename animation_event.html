@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @keyframes ani {
+        to {
+          transform: translate(200px, 200px);
+        }
+      }
+      .ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: red;
+        transition: 1s;
+      }
+      .ball.end {
+        background-color: goldenrod;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball"></div>
+    <script>
+      const ballElem = document.querySelector(".ball");
+      ballElem.addEventListener("click", function () {
+        ballElem.style.animation = "ani 1s 3 alternate forwards";
+      });
+
+      ballElem.addEventListener("animationstart", function () {
+        ballElem.classList.add("end");
+      });
+    </script>
+  </body>
+</html>

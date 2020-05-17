@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn">취소</button>
+    <script>
+      let hi;
+      const btn = document.querySelector(".btn");
+
+      function start() {
+        console.log("안녕!");
+        hi = requestAnimationFrame(start); //여기서 start를 다시 부르기 때문에 무한반복이 가능하다.
+      }
+
+      start(); //호출을 해줘야 실행이 된다.
+
+      btn.addEventListener("click", function () {
+        cancelAnimationFrame(hi);
+      });
+    </script>
+  </body>
+</html>
