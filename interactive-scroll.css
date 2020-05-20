@@ -1,5 +1,5 @@
 body {
-  height: 500vw;
+  height: 500vw; /* 스크롤 내리게 하기위해 */
   font-family: "Apple SD Gothic Neo", "Roboto", "Noto Sans KR", NanumGothic,
     "Malgun Gothic", sans-serif;
   -webkit-overflow-scrolling: touch;
