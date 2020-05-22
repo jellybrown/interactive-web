@@ -54,6 +54,7 @@ body {
 }
 
 .wall-front-a {
+  /* 각 면의 위치 조정 (z축) */
   transform: translateZ(300vw);
 }
 .wall-front-b {
@@ -91,4 +92,76 @@ body {
   width: 0;
   height: 100%;
   background: #00a8ff;
+}
+
+/* character */
+.character {
+  position: absolute;
+  left: 12%;
+  bottom: 5%;
+  width: 10vw;
+  height: 15.58vw; /* width, height 이렇게 준 이유는 화면의 크기에 따라 비율을 맞추기 위해서 */
+  transform-style: preserve-3d;
+}
+
+.character [data-direction="forward"] {
+  transform: rotateY(180deg);
+}
+.character [data-direction="backward"] {
+  transform: rotateY(0deg);
+}
+.character [data-direction="left"] {
+  transform: rotateY(-90deg);
+}
+.charactoer [data-direction="right"] {
+  transform: rotateY(90deg);
+}
+
+.character-face-con {
+  /* 캐릭터 부위 전체 클래스 */
+  position: absolute; /*원하는 위치에 놓기위해 */
+  transform-style: preserve-3d;
+  transition: 1s;
+}
+
+.character-face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.character-face.face-back {
+  transform: rotateY(180deg);
+}
+
+.character-head {
+  left: calc(
+    42 / 856 * 100%
+  ); /* 머리의 시작지점 계산 ( 맨앞~머리시작전/ 전체 ) */
+  width: calc(770 / 856 * 100%); /* 머리통의 너비/ 전체 */
+  height: calc(648 / 1334 * 100%);
+  top: 0;
+  z-index: 60;
+  transform-origin: center bottom;
+  animation: ani-moving0 0.6s infinite alternate
+    cubic-bezier(0.46, 0.18, 0.66, 0.93);
+}
+/* infinite alternate 무한히, 왔다갔다. */
+/* cubic-bezier: 가속도 설정 , 개발자도구 설정 */
+
+.character-head-face.face-front {
+  background-image: url("../images/ilbuni_head_front.png");
+}
+.character-head-face.face-back {
+  background-image: url("../images/ilbuni_head_back.png");
+}
+.character-torso {
+  left: ;
 }
