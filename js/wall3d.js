@@ -36,5 +36,11 @@
   //y축 기준일땐 좌우로 각도가 변하니까 x가 변한다.
 
   window.addEventListener("resize", resizeHandler); //화면크기 조정시마다 새로 조정
+  stageElem.addEventListener("click", function (e) {
+    //클릭하는 위치에 캐릭터 객체를 생성하는 생성자 함수
+    new Character({
+      xPos: (e.clientX / window.innerWidth) * 100,
+    });
+  });
   resizeHandler(); //여기서 초기화
 })();

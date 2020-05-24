@@ -1,3 +1,9 @@
+@keyframes ani-head {
+  to {
+    transform: rotateX(-10deg);
+  }
+}
+
 body {
   height: 500vw; /* 스크롤 내리게 하기위해 */
   font-family: "Apple SD Gothic Neo", "Roboto", "Noto Sans KR", NanumGothic,
@@ -150,18 +156,18 @@ body {
   top: 0;
   z-index: 60;
   transform-origin: center bottom;
-  animation: ani-moving0 0.6s infinite alternate
+  animation: ani-head 0.6s infinite alternate
     cubic-bezier(0.46, 0.18, 0.66, 0.93);
 }
 /* infinite alternate 무한히, 왔다갔다. */
 /* cubic-bezier: 가속도 설정 , 개발자도구 설정 */
 
 .character-head-face.face-front {
-  background-image: url("../images/ilbuni_head_front.png");
+  background-image: url("images/ilbuni_head_front.png");
 }
 .character-head-face.face-back {
-  background-image: url("../images/ilbuni_head_back.png");
+  background-image: url("images/ilbuni_head_back.png");
 }
 .character-torso {
-  left: ;
+  left: calc();
 }
