@@ -33,7 +33,7 @@ function Character(info) {
   this.scrollState = false;
   this.lastScrollTop = 0; //바로 이전스크롤 위치
   this.xPos = info.xPos; //아예 객체의 속성으로 등록 -> 유용함
-  this.speed = 1; // 좌우 스피드 셋팅
+  this.speed = info.speed; // 좌우 스피드 셋팅
   this.direction; //방향
   this.runningState = false; //좌우 이동 중인지 아닌지 확인
   this.rafId;
@@ -88,7 +88,7 @@ Character.prototype = {
       }
     });
 
-    window.addEventListener("keyup", function () {
+    window.addEventListener("keyup", function (e) {
       self.mainElem.classList.remove("running");
       cancelAnimationFrame(self.rafId);
       self.runningState = false; //키를 떼는순간 runningState 초기화를 해야 우측도 움직임
@@ -108,7 +108,7 @@ Character.prototype = {
       //왼쪽 자리 한계지정
       self.xPos = 2;
     }
-    if (self.xPos < 88) {
+    if (self.xPos > 88) {
       //오른쪽 자리 한계지정
       self.xPos = 88;
     }
